@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,13 +25,13 @@ namespace FPO1
         private void SaveAsButton(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Tiff Image|*.tiff|Png Image|*.png|Gif Image|*.gif";       //wybór formatów
-            saveFileDialog1.Title = "Save an Image File";             //opis okna dialogowego
+            saveFileDialog1.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Tiff Image|*.tiff|Png Image|*.png|Gif Image|*.gif";       //selection of formats
+            saveFileDialog1.Title = "Save an Image File";             //description of dialog file
             saveFileDialog1.ShowDialog();
             if (saveFileDialog1.FileName != "")
             {
-                System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();             // zapis z użyciem OpenFile   
-                switch (saveFileDialog1.FilterIndex)    //zapis w odpowiednim formacie w zalezności od wybranego formatu z listy
+                System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog1.OpenFile();             // save using OpenFile   
+                switch (saveFileDialog1.FilterIndex)    //save with suitable format chose from the list
                 {
                     case 1:
                         MyPictureBox.Image.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -146,7 +146,7 @@ namespace FPO1
             //Bitmap zoombmp = new Bitmap(img, img.Width + (img.Width * size.Width / 100), img.Height * size.Height / 100);
             Bitmap zoombmp = new Bitmap(img, Convert.ToInt32(img.Width * size.Width), Convert.ToInt32(img.Height * size.Height));
             Graphics g = Graphics.FromImage(zoombmp);
-            //g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic; //metoda interpolacji Nearest Neighbors, nie jest najlepszą dostępną!
+            //g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic; //interpolation method of Nearest Neighbors
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             //g.InterpolationMode = InterpolationMode.HighQualityBilinear;
             return zoombmp;
@@ -174,16 +174,16 @@ namespace FPO1
             switch (pictureBoxNumber)
             {
                 case 1:
-                    MyPictureBox.Image = image;                  //załadowanie obrazka do MyPictureBox              
-                    this.MyPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;   //StretchImage /CenterImage automatyczne skalowanie MyPictureBox do wielkości wczytywanego obrazka
+                    MyPictureBox.Image = image;                  //load image to MyPictureBox              
+                    this.MyPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;   //StretchImage /CenterImage auto scale MyPictureBox to sice of loaded img
                     WidthTextBox1.Text = image.Width.ToString();
                     HeightTextBox1.Text = image.Height.ToString();
                     VerticalTextBox1.Text = image.VerticalResolution.ToString();
                     HorizontalTextBox1.Text = image.HorizontalResolution.ToString();
                     break;
                 case 2:
-                    MyPictureBox2.Image = image;                  //załadowanie obrazka do MyPictureBox              
-                    //this.MyPictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;   //StretchImage/ CenterImage /AutoSize  automatyczne skalowanie MyPictureBox do wielkości wczytywanego obrazka
+                    MyPictureBox2.Image = image;                  //load image to MyPictureBox             
+                    //this.MyPictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;   //StretchImage/ CenterImage /AutoSize  auto scale MyPictureBox to sice of loaded img
                     WidthTextBox2.Text = image.Width.ToString();
                     HeightTextBox2.Text = image.Height.ToString();
                     VerticalTextBox2.Text = image.VerticalResolution.ToString();
@@ -207,21 +207,21 @@ namespace FPO1
         public static Bitmap RotateImage1(Image image, float angle)
         {
 
-            PointF offset = new PointF((float)image.Width / 2, (float)image.Height / 2);        //deklarujemy zmienne opisujące środek obrotu (oś rotacji)
+            PointF offset = new PointF((float)image.Width / 2, (float)image.Height / 2);        //declare variables describing the center of rotation (axis of rotation)
 
-            Bitmap rotatedBmp = new Bitmap(image.Width, image.Height);                                                 //definiujemy nową bitmapę
+            Bitmap rotatedBmp = new Bitmap(image.Width, image.Height);                                                 //define a new bitmap
 
-            rotatedBmp.SetResolution(image.HorizontalResolution, image.VerticalResolution);   //definiujemy rozdzielczość nowej bitmapy
+            rotatedBmp.SetResolution(image.HorizontalResolution, image.VerticalResolution);   // define the resolution of the new bitmap
 
-            Graphics g = Graphics.FromImage(rotatedBmp);  //metoda FromImage klasy Graphics,  tworzymy obiekt g - kopię wejściowej bitmapy na której będziemy działać
+            Graphics g = Graphics.FromImage(rotatedBmp);  //FromImage method of Graphics class,  we create an object g - a copy of the input bitmap on which we will operate
 
-            g.TranslateTransform(offset.X, offset.Y);   // ustawiamy środek obrotu (oś rotacji) 
+            g.TranslateTransform(offset.X, offset.Y);   // set the center of rotation (axis of rotation)
 
-            g.RotateTransform(angle);  // dokonujemy rotacji 
+            g.RotateTransform(angle);  // execute rotation
 
-            g.DrawImage(image, new PointF(-offset.X, -offset.Y)); //g.DrawImage(image, new PointF(0, 0));  //rysujemy obraz w określonej lokalizacji, newPoint to współrzędne lewego górnego rogu bitmapy  
+            g.DrawImage(image, new PointF(-offset.X, -offset.Y)); //g.DrawImage(image, new PointF(0, 0));  //draw the image in the specified location, newPoint are the coordinates of the upper left corner of the bitmap 
 
-            return rotatedBmp;  //zwracamy obróconą bitmapę
+            return rotatedBmp;  //return the rotated bitmap
 
         }
         private void Identity_Click(object sender, EventArgs e)
@@ -232,7 +232,7 @@ namespace FPO1
                 //MyPictureBox2.Image = Separation(myImage, SeparationChannel.IDENTITY, 0);
                 AddToPictureBox(Separation(myImage, SeparationChannel.IDENTITY, 0, 0), 2);
 
-                //filter(myPictureBox.Image, new int[] { 0, 0, 0, 0, 1, 0, 0, 0, 0 }, 1); // nowa funkcja 
+                //filter(myPictureBox.Image, new int[] { 0, 0, 0, 0, 1, 0, 0, 0, 0 }, 1); // new function 
 
                 //MyPictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;  //StretchImage  CenterImage                          
 
@@ -804,23 +804,23 @@ namespace FPO1
         // /*
         private void filter(Image input_Img, int[] maskValues, int dzielnik)
         {
-            int[,] mask = new int[3, 3] { { maskValues[0], maskValues[1], maskValues[2] }, { maskValues[3], maskValues[4], maskValues[5] }, { maskValues[6], maskValues[7], maskValues[8] } };     //definicja maski filtra 3x3
+            int[,] mask = new int[3, 3] { { maskValues[0], maskValues[1], maskValues[2] }, { maskValues[3], maskValues[4], maskValues[5] }, { maskValues[6], maskValues[7], maskValues[8] } };     //filter mask definition 3x3
             Bitmap new_Img = new Bitmap(input_Img);
             Bitmap output_Img = new Bitmap(new_Img);
 
-            for (int i = 1; i < new_Img.Height - 1; i++)    //pętla skanowania bitmapy obrazu kolumny
+            for (int i = 1; i < new_Img.Height - 1; i++)    //column image bitmap scan loop
             {
-                for (int j = 1; j < new_Img.Width - 1; j++)   //pętla skanowania bitmapy obrazu wiersze
+                for (int j = 1; j < new_Img.Width - 1; j++)   //loop scan bitmap image rows 
                 {
                     int r = 0;
                     int g = 0;
                     int b = 0;
 
-                    for (int h_filter = -1; h_filter < 2; h_filter++)              //pętla maski filtra kolumny
+                    for (int h_filter = -1; h_filter < 2; h_filter++)              //column filter mask loop
                     {
-                        for (int w_filter = -1; w_filter < 2; w_filter++)         //pętla maski filtra wiersze
+                        for (int w_filter = -1; w_filter < 2; w_filter++)         //lines filter mask loop
                         {
-                            r += new_Img.GetPixel(j + w_filter, i + h_filter).R * mask[h_filter + 1, w_filter + 1] / dzielnik;   //splot bitmapy z filtrem mask określonym za pomocą maski 3x3
+                            r += new_Img.GetPixel(j + w_filter, i + h_filter).R * mask[h_filter + 1, w_filter + 1] / dzielnik;   //convolution of a bitmap with a mask filter specified by a 3x3 mask
                             g += new_Img.GetPixel(j + w_filter, i + h_filter).G * mask[h_filter + 1, w_filter + 1] / dzielnik;
                             b += new_Img.GetPixel(j + w_filter, i + h_filter).B * mask[h_filter + 1, w_filter + 1] / dzielnik;
 
@@ -832,7 +832,7 @@ namespace FPO1
                             if (b < 0) b = 0;
                         }
                     }
-                    output_Img.SetPixel(j, i, Color.FromArgb(r, g, b));  //wyprowadzenie rezultatu działania filtra
+                    output_Img.SetPixel(j, i, Color.FromArgb(r, g, b));  //derivation of the result of the filter operation
                 }
             }
             MyPictureBox2.Image = output_Img;
