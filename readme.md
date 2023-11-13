@@ -5,6 +5,7 @@ This is an image processing program written in C# that allows users to perform v
 ## Table of Contents
 
 - [Features](#features)
+- [Technologies](#technologies)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -17,6 +18,18 @@ This is an image processing program written in C# that allows users to perform v
 - Customizable image filtering using different masks.
 - Text drawing with various color options.
 - Basic image information display.
+
+## Technologies
+
+- **Programming Language:** C#
+- **Development Environment:** Visual Studio
+- **Image Processing Library:** Emgu.CV (OpenCV wrapper for C#)
+- **User Interface Framework:** Windows Presentation Foundation (WPF)
+- **UI Layout Design:** Visual Studio Designer
+- **Dependency Injection:** Unity Container
+- **Version Control:** Git (GitHub)
+- **Image Loading and Saving:** System.Drawing
+- **Asynchronous Programming:** Async/Await Pattern
 
 ## Installation
 
