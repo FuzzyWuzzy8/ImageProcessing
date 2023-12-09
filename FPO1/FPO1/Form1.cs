@@ -71,9 +71,9 @@ namespace FPO1
                         string fullPath = ofd.FileName;
                         string fileName = ofd.SafeFileName;
                         string path = fullPath.Replace(fileName, "");
-                        FileDescription1.Text = "Nazwa pliku: " + fileName + "\r\n" +
-                                 "Sciezka: " + fullPath + "\r\n" +
-                                 "Nazwa folderu: " + path;
+                        FileDescription1.Text = "File name: " + fileName + "\r\n" +
+                                 "Full path: " + fullPath + "\r\n" +
+                                 "Folder name: " + path;
 
 
                     }
@@ -100,9 +100,9 @@ namespace FPO1
                         string fullPath = ofd.FileName;
                         string fileName = ofd.SafeFileName;
                         string path = fullPath.Replace(fileName, "");
-                        FileDescription2.Text = "Nazwa pliku: " + fileName + "\r\n" +
-                                 "Sciezka: " + fullPath + "\r\n" +
-                                 "Nazwa folderu: " + path;
+                        FileDescription2.Text = "File name: " + fileName + "\r\n" +
+                                 "Full path: " + fullPath + "\r\n" +
+                                 "Folder name: " + path;
 
                     }
                 MyPictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;  //StretchImage  CenterImage
