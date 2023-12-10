@@ -6,6 +6,7 @@ This is an image processing program written in C# that allows users to perform v
 
 - [Features](#features)
 - [Technologies](#technologies)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -31,11 +32,15 @@ This is an image processing program written in C# that allows users to perform v
 - **Image Loading and Saving:** System.Drawing
 - **Asynchronous Programming:** Async/Await Pattern
 
+## Screenshots
+![Screenshot 1](https://github.com/FuzzyWuzzy8/ImageProcessing/blob/master/screenshots/imgP_1.png)
+<!-- Add more screenshots later -->
+
 ## Installation
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/image-processing-program.git
+   git clone https://github.com/FuzzyWuzzy8/ImageProcessing.git
    cd image-processing-program
    Install Dependencies:
 
