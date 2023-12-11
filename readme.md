@@ -37,6 +37,8 @@ This is an image processing program written in C# that allows users to perform v
 ![Screenshot 2](https://github.com/FuzzyWuzzy8/ImageProcessing/blob/master/screenshots/ImgP_2.jpg)
 ![Screenshot 3](https://github.com/FuzzyWuzzy8/ImageProcessing/blob/master/screenshots/ImgP_3.jpg)
 ![Screenshot 4](https://github.com/FuzzyWuzzy8/ImageProcessing/blob/master/screenshots/ImgP_4.jpg)
+![Screenshot 4](https://github.com/FuzzyWuzzy8/ImageProcessing/blob/master/screenshots/ImgP_5.jpg)
+![Screenshot 4](https://github.com/FuzzyWuzzy8/ImageProcessing/blob/master/screenshots/ImgP_6.jpg)
 <!-- Add more screenshots later -->
 
 ## Installation
